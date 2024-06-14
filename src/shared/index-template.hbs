@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0, viewport-fit=cover">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+  <title>{{htmlWebpackPlugin.options.title}}</title>
+</head>
+<body content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0, viewport-fit=cover" scroll="no">
+  <noscript>You need to enable JavaScript to run this app</noscript>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    // We execute the same script as before
+    var vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty("--vh", `${vh}px`);
+
+    window.addEventListener("resize", function() {
+      // We execute the same script as before
+      var vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty("--vh", `${vh}px`);
+    });
+  </script>
+  {{!-- <h1>{{htmlWebpackPlugin.options.templateParameters.heading}}</h1> --}}
+  <div id='font-hack'>.</div>
+  <div id="app-root">
+    <div id="phaser-canvas"></div>
+  </div>
+</body>
+</html>

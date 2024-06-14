@@ -1,0 +1,32 @@
+:root {
+  // --bg-color: #86e3ce;
+  --bg-color: #000000;
+}
+
+#app-root {
+  height: 100%;
+  position: absolute;
+
+}
+
+body {
+  font-family: 'Open Sans Condensed', sans-serif;
+  background: var(--bg-color);
+  overflow: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+@font-face {
+  font-family: 'GameFont';
+  src: url("../../game/src/assets/fonts/aAkhirTahun.ttf") format("trueType");
+}
+
+#font-hack {
+  position: absolute;
+  font-family: 'GameFont';
+  left: -200%;
+}
