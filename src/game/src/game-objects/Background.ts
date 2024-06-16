@@ -25,7 +25,7 @@ export default class Background extends Phaser.GameObjects.Container {
       BG_COLOR
     );
     this.background.setOrigin(0.5);
-    this.background.setAlpha(0.95);
+    // this.background.setAlpha(0.95);
     this.add(this.background);
   }
 

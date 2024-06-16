@@ -83,7 +83,6 @@ export default class StartButton extends Phaser.GameObjects.Container {
     this.scene.tweens.add({
       targets: this,
       scale: 1,
-      alpha: 1,
       y: this.yPositions.initial,
       ease: TWEEN_EASING.QUAD_EASE_OUT,
       duration: 300,
