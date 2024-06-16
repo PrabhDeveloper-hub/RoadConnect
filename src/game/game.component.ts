@@ -11,7 +11,7 @@ type GameConfig = Phaser.Types.Core.GameConfig;
 
 class Game {
   static setupGame(): void {
-    const renderer = Phaser.AUTO;
+    const renderer = Phaser.CANVAS;
     const config: GameConfig = {
       type: renderer,
       title: 'Road Connect',

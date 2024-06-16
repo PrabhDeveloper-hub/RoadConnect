@@ -10,14 +10,30 @@ const black = 0x000000;
 export const BG_COLOR = 0x28bc8c;
 
 export const GAME_FONT = 'GameFont';
+export const TITLE_FONT = 'TitleFont';
 
-export const TIMER_CONFIG = {
-  fontSize: '36px',
-  fontColor: '#fad744',
-  clockColor: '0xf9eeff',
-  yOffsetFromSudokuCont: 0.05,
-};
-
+export const TITLE_CONFIG = {
+  text1:' ROAD ',
+  text2:' CONNECT ',
+  style: {
+    fontFamily: TITLE_FONT,
+    fontSize: '60px',
+    resolution: 3,
+    color: '#ffffff',
+  },
+  origin: {
+    x: 0.5,
+    y: 0.5
+  },
+  shadowStyle: {
+    x: -10,
+    y: 5,
+    color: '#36454F',
+    blur: 10,
+    stroke: false,
+    fill: true
+  }
+}
 export const START_BUTTON_CONFIG = {
   buttonColor: lightGray,
   shadowColor: black,
@@ -25,16 +41,6 @@ export const START_BUTTON_CONFIG = {
   depth: 2,
   strokeColor: blue,
   strokeSize: 0,
-};
-
-export const COUNT_DOWN_CONFIG = {
-  fontSize: '24px',
-  fontColor: grayHex,
-  clockColor: lightGray,
-  strokeColor: gray,
-  strokeSize: 3,
-  depth: 2,
-  yOffsetFromSudokuCont: 0.9,
 };
 
 export const LEVEL_INDICATOR_CONFIG = {
@@ -47,12 +53,15 @@ export const RESULT_SCREEN_CONFIG = {
   fontColor: grayHex,
 }
 
-export const RETRY_CONFIG = {
-  baseColor: 0xff2e63,
-  imageColor: 0xeaeaea,
-};
-
-
+export const GAME_IMAGES = [
+  { id: 'gameBack', path: 'gameBack.png' },
+  { id: 'start_button', path: 'start_button.png' },
+  { id: 'next', path: 'next.png' },
+  { id: 'replay', path: 'replay.png' },
+  { id: 'popup', path: 'pauseBoard.png' },
+  { id: 'overlay', path: 'overlay.png' },
+  { id: 'cross1', path: 'cross1.png' },
+]
 export const GAME_SOUNDS = [
   { key: 'bgm', path: 'bgm-compressed', loop: true, ext: 'mp3', volume: 0.35 },
   { key: 'click', path: 'click', loop: false, ext: 'wav', volume: 1 },
@@ -62,13 +71,7 @@ export const GAME_SOUNDS = [
 ]
 
 export const CUSTOM_EVENTS = {
-  BUTTON_CLICKED: 'button-clicked',
-  CORRECT_ITEM: 'correct-item',
-  INCORRECT_ITEM: 'incorrect-item',
-  ROUND_START: 'round-start',
-  ROUND_END: 'round-end',
-  CIRCLE_EXPANDED: 'circle-expanded',
-  CIRCLE_SHRINKED: 'circle-shrinked',
+  BUTTON_CLICKED: 'button-clicked'
 }
 
 

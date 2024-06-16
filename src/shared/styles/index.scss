@@ -22,9 +22,13 @@ a {
 
 @font-face {
   font-family: 'GameFont';
-  src: url("../../game/src/assets/fonts/aAkhirTahun.ttf") format("trueType");
+  src: url("../../game/src/assets/fonts/GameFont.ttf") format("trueType");
 }
 
+@font-face {
+  font-family: 'TitleFont';
+  src: url("../../game/src/assets/fonts/TitleFont.ttf") format("trueType");
+}
 #font-hack {
   position: absolute;
   font-family: 'GameFont';

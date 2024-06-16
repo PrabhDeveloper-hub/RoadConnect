@@ -68,11 +68,7 @@ export default class Popup extends Phaser.GameObjects.Container {
       },
     });
   }
-  
-  changeFunction(){
-    //TWEEN TEXT GROUPS
-  }
-
+ 
   tweenHideShow() {
     this.overlay.disableInteractive();
     this.overlay.setAlpha(0.01);
@@ -89,38 +85,5 @@ export default class Popup extends Phaser.GameObjects.Container {
     });
   }
 
-  addCoinsTimer() {
-    this.timerEvent = this.scene.time.addEvent({
-      delay: 200,
-      callback: this.addCoins,
-      callbackScope: this,
-      repeat: 9
-    });
-    this.scene.time.addEvent({
-      delay: 2500,
-      callback: this.increaseScore,
-      callbackScope: this,
-    });
-  }
 
-  addCoins() {
-    var coin = this.scene.add.image(Math.floor(Math.random() * 50), 0, 'fireparticle');
-    this.add(coin)
-    this.scene.tweens.add({
-      targets: coin,
-      x: this.scene.grs.designDim.width * 0.25,
-      y: -this.scene.grs.designDim.height * 0.45,
-      duration: 300,
-      ease: TWEEN_EASING.QUAD_EASE_IN,
-      onStart: () => {
-      },
-      onComplete: () => {
-
-      },
-    });
-  }
-
-  increaseScore() {
-    // this.scene.uiManager.numberCoins.setLevel(2010);
-  }
 }
