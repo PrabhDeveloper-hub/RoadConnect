@@ -17,17 +17,11 @@ export default class StartButton extends Phaser.GameObjects.Container {
 
     this.isEnabled = true;
 
-    // this.addBase();
     this.addStartText()
     this.addTouchHandler();
     this.scene.add.existing(this);
   }
-
-  private addBase() {
-    this.base = this.scene.add.image(0, 0, 'start_button');
-    this.add(this.base);
-  }
-
+  //Adding PLAY text which appears on title Screen
   private addStartText() {
     this.startText = this.scene.add
       .text(0, 0, ' PLAY ', START_BUTTON_CONFIG.textStyle)
@@ -39,6 +33,7 @@ export default class StartButton extends Phaser.GameObjects.Container {
     this.add(this.startText);
   }
 
+  //Handling PLAY button click event
   private addTouchHandler() {
     this.startText.setInteractive();
     this.startText.on('pointerdown', () => {
@@ -52,6 +47,7 @@ export default class StartButton extends Phaser.GameObjects.Container {
     });
   }
 
+  //Scaling animation when player click on PLAY button
   private exitAnimation() {
     const timeline = this.scene.tweens.createTimeline();
     timeline.add({
@@ -69,6 +65,7 @@ export default class StartButton extends Phaser.GameObjects.Container {
     timeline.play();
   }
 
+  //Scaling animation on game start
   entryAnimation(): void {
     this.scene.tweens.add({
       targets: this.startText,

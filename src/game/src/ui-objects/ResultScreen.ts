@@ -35,7 +35,7 @@ export default class ResultScreen extends Phaser.GameObjects.Container {
   }
 
   private addNextButton() {
-    this.nextButton = this.scene.add.image(0, 200, 'next');
+    this.nextButton = this.scene.add.image(0, 200, '');
     this.nextButton.setVisible(false);
     this.nextButton.setScale(0);
     this.add(this.nextButton);

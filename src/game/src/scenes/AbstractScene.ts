@@ -8,6 +8,8 @@ export abstract class AbstractScene extends Phaser.Scene {
   // playerDocRef!: DocumentReference;
   uiManager!:UIManager;
   currentLevel = 1;
+  maxLevel = 1;
+  totalLevels = 3;
 
 
   abstract resizeAndRepositionElements(): void;

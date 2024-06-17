@@ -55,7 +55,31 @@ export const START_BUTTON_CONFIG = {
     fill: true
   }
 };
-
+export const LEVEL_BUTTON_CONFIG = {
+  initialX:-170,
+  offset:{
+    x:120,
+    y:120
+  },
+  textStyle:{
+    fontFamily: GAME_FONT,
+    fontSize: '50px',
+    resolution: 3,
+    color: '#ffffff',
+  },
+  origin:{
+    x:0.5,
+    y:0.5
+  },
+  shadowStyle: {
+    x: -10,
+    y: 5,
+    color: '#36454F',
+    blur: 10,
+    stroke: false,
+    fill: true
+  }
+}
 export const LEVEL_INDICATOR_CONFIG = {
   fontSize: '22px',
   fontColor: '#9e480e',
@@ -68,12 +92,14 @@ export const RESULT_SCREEN_CONFIG = {
 
 export const GAME_IMAGES = [
   { id: 'gameBack', path: 'gameBack.png' },
-  { id: 'start_button', path: 'start_button.png' },
-  { id: 'next', path: 'next.png' },
   { id: 'replay', path: 'replay.png' },
   { id: 'popup', path: 'pauseBoard.png' },
   { id: 'overlay', path: 'overlay.png' },
-  { id: 'cross1', path: 'cross1.png' },
+  { id: 'menuBtn', path: 'UI/menu_button.png' },
+  { id: 'levelActive', path: 'UI/menu_button_active.png' },
+  { id: 'levelClicked', path: 'UI/menu_button_clicked.png' },
+  { id: 'levelDisable', path: 'UI/menu_button_disable.png' },
+  
 ]
 export const GAME_SOUNDS = [
   { key: 'bgm', path: 'bgm-compressed', loop: true, ext: 'mp3', volume: 0.35 },

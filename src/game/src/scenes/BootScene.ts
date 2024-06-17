@@ -48,8 +48,6 @@ class BootScene extends AbstractScene {
     this.handleUserDataLoad();
     // To load main game assets
     this.assetsPreloader.loadGameSceneAssets();
-
-    // create the loading bar
   }
 
   private handleLoadingProgress(): void {

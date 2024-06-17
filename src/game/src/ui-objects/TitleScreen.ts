@@ -19,16 +19,17 @@ export default class TitleScreen extends Phaser.GameObjects.Container {
     this.scene.add.existing(this);
   }
 
+  //Setting up the start screen of the game
   setup() {
-    //ADD BG
     this.intro = this.scene.add.image(0, 0, 'gameBack').setScale(0.78);
     this.startButton = new StartButton(this.scene);
     this.add(this.intro);
-    this.createTItleText();
+    this.createTitleText();
     this.entryAnimation();
   }
 
-  createTItleText() {
+  //Creating Game title text 
+  createTitleText() {
     this.titleRoad = this.scene.add.text(-CAM_CENTER.x, -CAM_CENTER.y / 9, TITLE_CONFIG.text1, TITLE_CONFIG.style)
       .setAlign('center')
       .setOrigin(TITLE_CONFIG.origin.x, TITLE_CONFIG.origin.y)
@@ -42,6 +43,7 @@ export default class TitleScreen extends Phaser.GameObjects.Container {
     this.add(this.titleConnect);
   }
 
+  //Animation when starting the game
   entryAnimation() {
     let self = this;
     this.scene.tweens.add({
@@ -55,6 +57,7 @@ export default class TitleScreen extends Phaser.GameObjects.Container {
     })
   }
 
+  //Animation when player clicks on Play button
   exitAnimation() {
     let self = this;
     this.scene.tweens.add({

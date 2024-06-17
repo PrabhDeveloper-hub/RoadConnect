@@ -17,9 +17,9 @@ export default class UIManager {
   constructor(scene: AbstractScene, gameManager: GameManager) {
     this.scene = scene;
     this.gameManager = gameManager;
-    this.popup = new Popup(this.scene);
     this.resultScreen = new ResultScreen(this.scene);
     this.titleScreen = new TitleScreen(this.scene); 
+    this.popup = new Popup(this.scene);
     this.addEventHandlers();
   }
 
@@ -28,6 +28,7 @@ export default class UIManager {
 
     this.titleScreen.startButton.on(CUSTOM_EVENTS.BUTTON_CLICKED, () => {
       this.titleScreen.exitAnimation();
+      this.popup.entryAnimation();
     });
     this.resultScreen.retryButton.on(CUSTOM_EVENTS.BUTTON_CLICKED, () => {
       this.isRetry = true;
