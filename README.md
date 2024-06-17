@@ -21,8 +21,10 @@ Once the server is running you can edit any of the files in the `src` folder. We
 
 `src` - Contains all the source code of the game
 
-`src/shared` - Contains all the reusable template code 
-`src/shared/global.d.ts` - It has declared modules for all the file types used as sprites and plugins to be used in the game
+`src/shared` - Contains all the reusable template code.
+
+`src/shared/global.d.ts` - It has declared modules for all the file types used as sprites and plugins to be used in the game.
+
 `src/shared/index-template.hbs` - An HBS file is a template file created by Handlebars, a web template system. It contains a template written in HTML code and embedded with Handlebars expressions. An HBS file performs the same function as a .HANDLEBARS file.
 Handlebars is a JavaScript library that helps developers create cleaner code. A Handlebars template includes a series of Handlebars expressions that look something like this: `{{inputobject}}`.
 
