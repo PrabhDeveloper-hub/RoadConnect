@@ -108,6 +108,7 @@ export default class Popup extends Phaser.GameObjects.Container {
 
   //Animating the popup when clicking on the level button
   exitAnimation() {
+    let self = this;
     this.overlay.disableInteractive();
     this.overlay.setAlpha(0.01);
     this.scene.tweens.add({
@@ -118,7 +119,7 @@ export default class Popup extends Phaser.GameObjects.Container {
       onStart: () => {
       },
       onComplete: () => {
-
+        self.scene.uiManager.levelIndicator.entryAnimation();
       },
     });
   }

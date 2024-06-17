@@ -13,8 +13,8 @@ export const GAME_FONT = 'GameFont';
 export const TITLE_FONT = 'TitleFont';
 
 export const TITLE_CONFIG = {
-  text1:' ROAD ',
-  text2:' CONNECT ',
+  text1: ' ROAD ',
+  text2: ' CONNECT ',
   style: {
     fontFamily: TITLE_FONT,
     fontSize: '60px',
@@ -35,17 +35,17 @@ export const TITLE_CONFIG = {
   }
 }
 export const START_BUTTON_CONFIG = {
-  textStyle:{
+  textStyle: {
     fontFamily: GAME_FONT,
     fontSize: '50px',
     resolution: 3,
     color: '#ffffff',
   },
-  origin:{
-    x:0.5,
-    y:0.5
+  origin: {
+    x: 0.5,
+    y: 0.5
   },
-  depth:2,
+  depth: 2,
   shadowStyle: {
     x: -10,
     y: 5,
@@ -56,20 +56,20 @@ export const START_BUTTON_CONFIG = {
   }
 };
 export const LEVEL_BUTTON_CONFIG = {
-  initialX:-170,
-  offset:{
-    x:120,
-    y:120
+  initialX: -170,
+  offset: {
+    x: 120,
+    y: 120
   },
-  textStyle:{
+  textStyle: {
     fontFamily: GAME_FONT,
     fontSize: '50px',
     resolution: 3,
     color: '#ffffff',
   },
-  origin:{
-    x:0.5,
-    y:0.5
+  origin: {
+    x: 0.5,
+    y: 0.5
   },
   shadowStyle: {
     x: -10,
@@ -81,8 +81,24 @@ export const LEVEL_BUTTON_CONFIG = {
   }
 }
 export const LEVEL_INDICATOR_CONFIG = {
-  fontSize: '22px',
-  fontColor: '#9e480e',
+  textStyle: {
+    fontFamily: GAME_FONT,
+    fontSize: '50px',
+    resolution: 3,
+    color: '#ffffff',
+  },
+  origin: {
+    x: 0.5,
+    y: 0.5
+  },
+  shadowStyle: {
+    x: -10,
+    y: 5,
+    color: '#36454F',
+    blur: 10,
+    stroke: false,
+    fill: true
+  }
 };
 
 export const RESULT_SCREEN_CONFIG = {
@@ -99,7 +115,7 @@ export const GAME_IMAGES = [
   { id: 'levelActive', path: 'UI/menu_button_active.png' },
   { id: 'levelClicked', path: 'UI/menu_button_clicked.png' },
   { id: 'levelDisable', path: 'UI/menu_button_disable.png' },
-  
+
 ]
 export const GAME_SOUNDS = [
   { key: 'bgm', path: 'bgm-compressed', loop: true, ext: 'mp3', volume: 0.35 },
@@ -108,10 +124,20 @@ export const GAME_SOUNDS = [
   { key: 'level-up', path: 'level-up-compressed', loop: false, ext: 'mp3', volume: 1 },
   { key: 'wrong-item', path: 'wrong-item', loop: false, ext: 'wav', volume: 1 },
 ]
-
 export const CUSTOM_EVENTS = {
   BUTTON_CLICKED: 'button-clicked'
 }
+export const LEVEL_DATA = [
+  [
+    // {
+    //   blockId
+    //   posX:
+    //   posY:
+    //   initialAngle:
+    //   finalAngle:
+    // }
+  ]
+]
 
 
 

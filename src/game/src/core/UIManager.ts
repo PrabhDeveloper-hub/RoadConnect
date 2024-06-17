@@ -4,12 +4,13 @@ import ResultScreen from '../ui-objects/ResultScreen';
 import GameManager from './GameManager';
 import Popup from '../ui-objects/Popup';
 import TitleScreen from '../ui-objects/TitleScreen';
-
+import LevelIndicator from '../ui-objects/LevelIndicator';
 export default class UIManager {
   scene: AbstractScene;
   private gameManager: GameManager;
 
   resultScreen: ResultScreen;
+  levelIndicator:LevelIndicator;
   popup:Popup;
   titleScreen:TitleScreen;
   isRetry: boolean = false;
@@ -19,6 +20,7 @@ export default class UIManager {
     this.gameManager = gameManager;
     this.resultScreen = new ResultScreen(this.scene);
     this.titleScreen = new TitleScreen(this.scene); 
+    this.levelIndicator = new LevelIndicator(this.scene);
     this.popup = new Popup(this.scene);
     this.addEventHandlers();
   }
