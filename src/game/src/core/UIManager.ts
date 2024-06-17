@@ -27,8 +27,7 @@ export default class UIManager {
     const gc = this.gameManager.gameComponents;
 
     this.titleScreen.startButton.on(CUSTOM_EVENTS.BUTTON_CLICKED, () => {
-      console.log("START ANIMATION");
-      // this.popup.tweenQuitShow();
+      this.titleScreen.exitAnimation();
     });
     this.resultScreen.retryButton.on(CUSTOM_EVENTS.BUTTON_CLICKED, () => {
       this.isRetry = true;

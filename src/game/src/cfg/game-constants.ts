@@ -35,12 +35,25 @@ export const TITLE_CONFIG = {
   }
 }
 export const START_BUTTON_CONFIG = {
-  buttonColor: lightGray,
-  shadowColor: black,
-  textColor: '#ffffff',
-  depth: 2,
-  strokeColor: blue,
-  strokeSize: 0,
+  textStyle:{
+    fontFamily: GAME_FONT,
+    fontSize: '50px',
+    resolution: 3,
+    color: '#ffffff',
+  },
+  origin:{
+    x:0.5,
+    y:0.5
+  },
+  depth:2,
+  shadowStyle: {
+    x: -10,
+    y: 5,
+    color: '#36454F',
+    blur: 10,
+    stroke: false,
+    fill: true
+  }
 };
 
 export const LEVEL_INDICATOR_CONFIG = {

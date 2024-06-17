@@ -2,7 +2,7 @@ import AbstractScene from './AbstractScene';
 import AssetsPreloader from '../utils/AssetPreloader';
 import AudioManager from '../core/AudioManager';
 import { CAM_CENTER } from '../cfg/game-config';
-import { GAME_FONT } from '../cfg/game-constants';
+import { GAME_FONT ,TITLE_FONT} from '../cfg/game-constants';
 
 class BootScene extends AbstractScene {
   assetsPreloader: AssetsPreloader;
@@ -36,7 +36,9 @@ class BootScene extends AbstractScene {
     })
     .setAlign('center')
     .setOrigin(0.5, 0.5);
-
+    this.add.text(CAM_CENTER.x,CAM_CENTER.y," ",{
+      fontFamily: TITLE_FONT
+    })
 
     this.audioManager = new AudioManager(this);
     this.audioManager.initBootAudio();
