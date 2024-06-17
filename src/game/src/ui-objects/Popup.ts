@@ -70,6 +70,7 @@ export default class Popup extends Phaser.GameObjects.Container {
       let curLevel = lvlBtn.data.get('lvl');
       lvlBtn.setTexture('levelClicked');
       this.scene.currentLevel = curLevel;
+      this.scene.audioManager.playClick();
       let self = this;
       setTimeout(() => {
         self.exitAnimation();

@@ -115,26 +115,33 @@ export const GAME_IMAGES = [
   { id: 'levelActive', path: 'UI/menu_button_active.png' },
   { id: 'levelClicked', path: 'UI/menu_button_clicked.png' },
   { id: 'levelDisable', path: 'UI/menu_button_disable.png' },
+  { id: 'block1', path: 'Roads/block1.png' },
+  { id: 'block2', path: 'Roads/block2.png' },
+  { id: 'block3', path: 'Roads/block3.png' },
+  { id: 'block4', path: 'Roads/block4.png' },
+  { id: 'block5', path: 'Roads/block5.png' },
+  { id: 'block6', path: 'Roads/block6.png' },
+  { id: 'block7', path: 'Roads/block7.png' },
 
 ]
 export const GAME_SOUNDS = [
-  { key: 'bgm', path: 'bgm-compressed', loop: true, ext: 'mp3', volume: 0.35 },
-  { key: 'click', path: 'click', loop: false, ext: 'wav', volume: 1 },
+  { key: 'bgm', path: 'bgMusic', loop: true, ext: 'wav', volume: 0.35 },
+  { key: 'click', path: 'click', loop: false, ext: 'ogg', volume: 1 },
   { key: 'correct-item', path: 'correct-item', loop: false, ext: 'wav', volume: 1 },
   { key: 'level-up', path: 'level-up-compressed', loop: false, ext: 'mp3', volume: 1 },
-  { key: 'wrong-item', path: 'wrong-item', loop: false, ext: 'wav', volume: 1 },
 ]
 export const CUSTOM_EVENTS = {
   BUTTON_CLICKED: 'button-clicked'
 }
 export const LEVEL_DATA = [
   [
+    //finalAngle should be array because some blocks has 2 final angles like block2,5,6
     // {
     //   blockId
     //   posX:
     //   posY:
     //   initialAngle:
-    //   finalAngle:
+    //   finalAngle:[]
     // }
   ]
 ]

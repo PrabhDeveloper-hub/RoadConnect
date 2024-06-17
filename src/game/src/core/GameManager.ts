@@ -8,17 +8,19 @@ export default class GameManager {
   constructor(scene: AbstractScene) {
     this.scene = scene;
     this.gameComponents = new GameComponents(this.scene);
-    
-    
     this.updateLevelData();
   }
 
-  updateLevelData(): void {
+  updateLevelData() {
     const currLevel = this.scene.currentLevel;
     
   }
-
-  incrementLevel(): void {
+  setMaxLevel(){
+    if(this.scene.currentLevel > this.scene.maxLevel){
+      this.scene.maxLevel = this.scene.currentLevel;
+    }
+  }
+  incrementLevel() {
     this.scene.currentLevel++;
   }
 }
