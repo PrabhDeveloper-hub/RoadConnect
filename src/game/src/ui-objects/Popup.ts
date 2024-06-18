@@ -40,7 +40,6 @@ export default class Popup extends Phaser.GameObjects.Container {
 
   //Adding Level Buttons to popup
   addBtns() {
-    console.log("CURRLEVEL", this.scene.currentLevel);
     for (let i = 0; i < this.scene.totalLevels; i++) {
       let levelButtonContainer = this.scene.add.container(LEVEL_BUTTON_CONFIG.initialX + i * LEVEL_BUTTON_CONFIG.offset.x, -this.base.height / 2.5)
       let lvlBtn = this.scene.add.sprite(0, 0, 'levelActive').setScale(2);
@@ -73,17 +72,18 @@ export default class Popup extends Phaser.GameObjects.Container {
       this.scene.audioManager.playClick();
       setTimeout(() => {
         this.exitAnimation();
+        this.scene.uiManager.menuButton.showHideMenu(true);
         this.scene.uiManager.gameplay.setup();
         lvlBtn.setTexture('levelActive');
       }, 100);
     }
-
-    console.log(lvlBtn.texture.key, this.scene.currentLevel);
   }
 
   //Disable buttons of those levels which are not played yet
   disableButtons() {
-    console.log(this.scene.maxLevel)
+    for (let i = 0; i < this.scene.maxLevel; i++) {
+      this.levelButtons[i].setTexture('levelActive');
+    }
     for (let i = this.scene.maxLevel; i < this.levelButtons.length; i++) {
       this.levelButtons[i].setTexture('levelDisable');
     }

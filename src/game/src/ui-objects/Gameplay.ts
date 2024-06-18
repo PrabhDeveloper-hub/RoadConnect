@@ -17,13 +17,11 @@ export default class GamePlay extends Phaser.GameObjects.Container {
 
   //Setting up Game Screen
   setup() {
-    console.log("START GAMEPLAY");
     this.addBlocks();
   }
 
   //Adding road blocks
   addBlocks() {
-    console.log(">>", this.scene.currentLevel, LEVEL_DATA[this.scene.currentLevel - 1]);
     let levelData = LEVEL_DATA[this.scene.currentLevel - 1];
     for (let i = 0; i < levelData.length; i++) {
       let block = this.scene.add.sprite(levelData[i].posX, levelData[i].posY, levelData[i].blockId)
@@ -36,7 +34,6 @@ export default class GamePlay extends Phaser.GameObjects.Container {
       block.on('pointerdown', () => {
         this.scene.audioManager.play('rotateShape');
         block.angle += 90;
-        console.log(block.angle);
         this.checkCorrectAngles();
       });
       this.allBlocks.push(block);
@@ -61,14 +58,15 @@ export default class GamePlay extends Phaser.GameObjects.Container {
       setTimeout(() => {
         this.exitAnimation();
         this.scene.uiManager.levelIndicator.exitAnimation();
-        if(this.scene.currentLevel < this.scene.totalLevels){
+        if (this.scene.currentLevel < this.scene.totalLevels) {
           this.scene.uiManager.gameManager.incrementLevel();
           this.scene.uiManager.gameManager.setMaxLevel();
           setTimeout(() => {
             this.nextLevel();
-        }, 150);
+          }, 150);
         } else {
-          console.log("ALL LEVELS CLEARED =)");
+          this.scene.uiManager.resultScreen.entryAnimation();
+
         }
       }, 150);
     }
@@ -95,6 +93,7 @@ export default class GamePlay extends Phaser.GameObjects.Container {
   exitAnimation() {
     let self = this;
     this.allBlocks.forEach(function (block) {
+      block.disableInteractive();
       self.scene.tweens.add({
         targets: block,
         scale: 0,
@@ -105,7 +104,7 @@ export default class GamePlay extends Phaser.GameObjects.Container {
         }
       });
     })
-    this.allBlocks =[];
+    this.allBlocks = [];
   }
 
   //Load next level

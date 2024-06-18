@@ -1,6 +1,7 @@
 import AudioManager from '../core/AudioManager';
 import GameResizer from '../utils/GameResizer';
 import UIManager from '../core/UIManager';
+import { LEVEL_DATA } from '../cfg/game-constants';
 
 export abstract class AbstractScene extends Phaser.Scene {
   grs!: GameResizer;
@@ -9,7 +10,7 @@ export abstract class AbstractScene extends Phaser.Scene {
   uiManager!:UIManager;
   currentLevel = 1;
   maxLevel = 1;
-  totalLevels = 3;
+  totalLevels = LEVEL_DATA.length;
 
 
   abstract resizeAndRepositionElements(): void;

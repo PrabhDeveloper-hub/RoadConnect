@@ -1,5 +1,5 @@
 import { CAM_CENTER } from '../cfg/game-config';
-import { CUSTOM_EVENTS, GAME_FONT, START_BUTTON_CONFIG, TITLE_CONFIG } from '../cfg/game-constants';
+import { START_BUTTON_CONFIG} from '../cfg/game-constants';
 import { TWEEN_EASING } from '../cfg/static-constants';
 import AbstractScene from '../scenes/AbstractScene';
 
@@ -41,7 +41,8 @@ export default class StartButton extends Phaser.GameObjects.Container {
         return;
       }
       this.isEnabled = false;
-      this.emit(CUSTOM_EVENTS.BUTTON_CLICKED);
+      this.scene.uiManager.titleScreen.exitAnimation();
+      this.scene.uiManager.popup.entryAnimation();
       this.scene.audioManager.playClick();
       this.exitAnimation();
     });

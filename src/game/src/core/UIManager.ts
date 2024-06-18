@@ -1,10 +1,12 @@
-import { CUSTOM_EVENTS } from '../cfg/game-constants';
+
 import AbstractScene from '../scenes/AbstractScene';
 import GameManager from './GameManager';
 import Popup from '../ui-objects/Popup';
 import TitleScreen from '../ui-objects/TitleScreen';
 import LevelIndicator from '../ui-objects/LevelIndicator';
 import GamePlay from '../ui-objects/Gameplay';
+import ResultScreen from '../ui-objects/ResultScreen';
+import MenuButton from '../ui-objects/MenuButton';
 export default class UIManager {
   scene: AbstractScene;
   gameManager: GameManager;
@@ -12,7 +14,8 @@ export default class UIManager {
   popup: Popup;
   titleScreen: TitleScreen;
   gameplay: GamePlay;
-
+  resultScreen: ResultScreen;
+  menuButton:MenuButton
   constructor(scene: AbstractScene, gameManager: GameManager) {
     this.scene = scene;
     this.gameManager = gameManager;
@@ -20,14 +23,9 @@ export default class UIManager {
     this.levelIndicator = new LevelIndicator(this.scene);
     this.popup = new Popup(this.scene);
     this.gameplay = new GamePlay(this.scene);
-    this.addEventHandlers();
+    this.menuButton = new MenuButton(this.scene);
+    this.resultScreen = new ResultScreen(this.scene);
   }
 
-  private addEventHandlers() {
-    this.titleScreen.startButton.on(CUSTOM_EVENTS.BUTTON_CLICKED, () => {
-      this.titleScreen.exitAnimation();
-      this.popup.entryAnimation();
-    });
-    
-  }
+  
 }

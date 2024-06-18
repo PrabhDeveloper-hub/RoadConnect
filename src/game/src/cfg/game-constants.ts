@@ -55,6 +55,7 @@ export const START_BUTTON_CONFIG = {
     fill: true
   }
 };
+
 export const LEVEL_BUTTON_CONFIG = {
   initialX: -170,
   offset: {
@@ -79,7 +80,7 @@ export const LEVEL_BUTTON_CONFIG = {
     stroke: false,
     fill: true
   }
-}
+};
 export const LEVEL_INDICATOR_CONFIG = {
   textStyle: {
     fontFamily: GAME_FONT,
@@ -102,9 +103,29 @@ export const LEVEL_INDICATOR_CONFIG = {
 };
 
 export const RESULT_SCREEN_CONFIG = {
-  fontSize: '64px',
-  fontColor: grayHex,
-}
+  textStyle: {
+    fontFamily: GAME_FONT,
+    fontSize: '65px',
+    resolution: 3,
+    color: '#ffffff',
+    wordWrap:{
+      width:50 
+    }
+  },
+  origin: {
+    x: 0.5,
+    y: 0.5
+  },
+  depth: 2,
+  shadowStyle: {
+    x: -10,
+    y: 5,
+    color: '#36454F',
+    blur: 10,
+    stroke: false,
+    fill: true
+  }
+};
 
 export const GAME_IMAGES = [
   { id: 'gameBack', path: 'gameBack.png' },
@@ -130,14 +151,11 @@ export const GAME_SOUNDS = [
   { key: 'shapeAppear', path: 'ShapeAppear', loop: false, ext: 'ogg', volume: 1 },
   { key: 'levelComplete', path: 'LevelComplete', loop: false, ext: 'wav', volume: 1 },
 ]
-export const CUSTOM_EVENTS = {
-  BUTTON_CLICKED: 'button-clicked'
-}
 
 export const ROAD_BLOCK = {
   width:127,
   height:127,
-  scale:0.85,
+  scale:0.9,
   origin:{
     x:0.5,
     y:0.5
