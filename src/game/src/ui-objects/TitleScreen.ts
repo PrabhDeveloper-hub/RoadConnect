@@ -21,7 +21,7 @@ export default class TitleScreen extends Phaser.GameObjects.Container {
 
   //Setting up the start screen of the game
   setup() {
-    this.intro = this.scene.add.image(0, 0, 'gameBack').setScale(0.78);
+    this.intro = this.scene.add.image(0, 0, 'gameBack').setScale(0.78).setAlpha(0.3);
     this.startButton = new StartButton(this.scene);
     this.add(this.intro);
     this.createTitleText();

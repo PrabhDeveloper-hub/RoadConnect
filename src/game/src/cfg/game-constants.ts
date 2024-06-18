@@ -83,7 +83,7 @@ export const LEVEL_BUTTON_CONFIG = {
 export const LEVEL_INDICATOR_CONFIG = {
   textStyle: {
     fontFamily: GAME_FONT,
-    fontSize: '50px',
+    fontSize: '60px',
     resolution: 3,
     color: '#ffffff',
   },
@@ -108,7 +108,6 @@ export const RESULT_SCREEN_CONFIG = {
 
 export const GAME_IMAGES = [
   { id: 'gameBack', path: 'gameBack.png' },
-  { id: 'replay', path: 'replay.png' },
   { id: 'popup', path: 'pauseBoard.png' },
   { id: 'overlay', path: 'overlay.png' },
   { id: 'menuBtn', path: 'UI/menu_button.png' },
@@ -133,16 +132,47 @@ export const GAME_SOUNDS = [
 export const CUSTOM_EVENTS = {
   BUTTON_CLICKED: 'button-clicked'
 }
+
+export const ROAD_BLOCK = {
+  width:127,
+  height:127,
+  scale:0.85,
+  origin:{
+    x:0.5,
+    y:0.5
+  }
+}
 export const LEVEL_DATA = [
   [
     //finalAngle should be array because some blocks has 2 final angles like block2,5,6
-    // {
-    //   blockId
-    //   posX:
-    //   posY:
-    //   initialAngle:
-    //   finalAngle:[]
-    // }
+    {
+      blockId: 'block1',
+      posX:0,
+      posY:0,
+      initialAngle:90,
+      finalAngle:[0]
+    },
+    {
+      blockId: 'block1',
+      posX:ROAD_BLOCK.width * ROAD_BLOCK.scale,
+      posY:0,
+      initialAngle:0,
+      finalAngle:[90]
+    },
+    {
+      blockId: 'block1',
+      posX:0,
+      posY:ROAD_BLOCK.height* ROAD_BLOCK.scale,
+      initialAngle:180,
+      finalAngle:[-90]
+    },
+    {
+      blockId: 'block1',
+      posX:ROAD_BLOCK.width* ROAD_BLOCK.scale,
+      posY:ROAD_BLOCK.height* ROAD_BLOCK.scale,
+      initialAngle:270,
+      finalAngle:[-180]
+    }
   ]
 ]
 

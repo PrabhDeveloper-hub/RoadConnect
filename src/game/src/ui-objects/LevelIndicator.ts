@@ -51,7 +51,7 @@ export default class LevelIndicator extends Phaser.GameObjects.Container {
       ease: TWEEN_EASING.LINEAR,
       duration: 100,
       onComplete: () => {
-        this.x = CAM_CENTER.x;
+        this.levelTitleText.x = CAM_CENTER.x;
       }
     })
   }

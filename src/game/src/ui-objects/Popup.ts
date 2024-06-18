@@ -71,9 +71,9 @@ export default class Popup extends Phaser.GameObjects.Container {
       lvlBtn.setTexture('levelClicked');
       this.scene.currentLevel = curLevel;
       this.scene.audioManager.playClick();
-      let self = this;
       setTimeout(() => {
-        self.exitAnimation();
+        this.exitAnimation();
+        this.scene.uiManager.gameplay.setup();
         lvlBtn.setTexture('levelActive');
       }, 100);
     }
@@ -124,6 +124,4 @@ export default class Popup extends Phaser.GameObjects.Container {
       },
     });
   }
-
-
 }
