@@ -60,11 +60,15 @@ export default class GamePlay extends Phaser.GameObjects.Container {
       setTimeout(() => {
         this.exitAnimation();
         this.scene.uiManager.levelIndicator.exitAnimation();
-        this.scene.uiManager.gameManager.incrementLevel();
-        this.scene.uiManager.gameManager.setMaxLevel();
-        setTimeout(() => {
-          this.nextLevel();
+        if(this.scene.currentLevel < this.scene.totalLevels){
+          this.scene.uiManager.gameManager.incrementLevel();
+          this.scene.uiManager.gameManager.setMaxLevel();
+          setTimeout(() => {
+            this.nextLevel();
         }, 150);
+        } else {
+          console.log("ALL LEVELS CLEARED =)");
+        }
       }, 150);
     }
   }
