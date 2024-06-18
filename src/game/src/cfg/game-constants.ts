@@ -173,6 +173,50 @@ export const LEVEL_DATA = [
       initialAngle:270,
       finalAngle:[-180]
     }
+  ],
+  [
+    {
+      blockId: 'block1',
+      posX:0,
+      posY:0,
+      initialAngle:90,
+      finalAngle:[0]
+    },
+    {
+      blockId: 'block3',
+      posX:ROAD_BLOCK.width * ROAD_BLOCK.scale,
+      posY:0,
+      initialAngle:90,
+      finalAngle:[-180]
+    },
+    {
+      blockId: 'block1',
+      posX:0,
+      posY:ROAD_BLOCK.height* ROAD_BLOCK.scale,
+      initialAngle:180,
+      finalAngle:[-90]
+    },
+    {
+      blockId: 'block4',
+      posX:ROAD_BLOCK.width* ROAD_BLOCK.scale,
+      posY:ROAD_BLOCK.height* ROAD_BLOCK.scale,
+      initialAngle:270,
+      finalAngle:[90]
+    },
+    {
+      blockId: 'block3',
+      posX:0,
+      posY:2*(ROAD_BLOCK.height* ROAD_BLOCK.scale),
+      initialAngle:0,
+      finalAngle:[0]
+    },
+    {
+      blockId: 'block4',
+      posX:ROAD_BLOCK.width* ROAD_BLOCK.scale,
+      posY:2*(ROAD_BLOCK.height* ROAD_BLOCK.scale),
+      initialAngle:90,
+      finalAngle:[-180]
+    }
   ]
 ]
 

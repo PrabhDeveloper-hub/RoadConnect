@@ -35,6 +35,7 @@ export default class GamePlay extends Phaser.GameObjects.Container {
       block.data.set('finalAngle', levelData[i].finalAngle)
       block.on('pointerdown', () => {
         block.angle += 90;
+        console.log(block.angle);
         this.checkCorrectAngles();
       });
       this.allBlocks.push(block);
@@ -63,7 +64,7 @@ export default class GamePlay extends Phaser.GameObjects.Container {
         this.scene.uiManager.gameManager.setMaxLevel();
         setTimeout(() => {
           this.nextLevel();
-        }, 300);
+        }, 150);
       }, 150);
     }
   }
@@ -87,15 +88,18 @@ export default class GamePlay extends Phaser.GameObjects.Container {
   //Exit Blocks scale tween on level complete
   exitAnimation() {
     let self = this;
-
     this.allBlocks.forEach(function (block) {
       self.scene.tweens.add({
         targets: block,
         scale: 0,
         ease: TWEEN_EASING.LINEAR,
-        duration: 100
+        duration: 100,
+        onComplete: () => {
+          block.destroy();
+        }
       });
     })
+    this.allBlocks =[];
   }
 
   //Load next level
