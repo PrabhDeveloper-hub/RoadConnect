@@ -15,9 +15,9 @@ export default class ResultScreen extends Phaser.GameObjects.Container {
     this.scene.add.existing(this);
   }
 
+  //Creating the Result text
   addResultText() {
-    this.resultText = this.scene.add
-      .text(0, 0, ' ALL  LEVELS  CLEARED!  =) ', RESULT_SCREEN_CONFIG.textStyle)
+    this.resultText = this.scene.add.text(0, 0, ' ALL  LEVELS  CLEARED!  =) ', RESULT_SCREEN_CONFIG.textStyle)
       .setAlign('center')
       .setOrigin(RESULT_SCREEN_CONFIG.origin.x, RESULT_SCREEN_CONFIG.origin.y)
       .setScale(0)
@@ -38,7 +38,7 @@ export default class ResultScreen extends Phaser.GameObjects.Container {
   }
 
   //Scaling animation when all levels are cleared
-  entryAnimation(){
+  entryAnimation() {
     this.scene.tweens.add({
       targets: this.resultText,
       scale: 1,

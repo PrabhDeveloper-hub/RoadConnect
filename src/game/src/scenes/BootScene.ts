@@ -27,6 +27,7 @@ class BootScene extends AbstractScene {
   resizeAndRepositionElements(): void {
   }
 
+  //Function used to display the objects before starting the game while loading the assets like Loading text or Progress bar
   create(): void {
     this.loadingTitle = this.add.text(CAM_CENTER.x, CAM_CENTER.y - 75, 'Loading...', {
       fontFamily: GAME_FONT,
@@ -50,6 +51,7 @@ class BootScene extends AbstractScene {
     this.assetsPreloader.loadGameSceneAssets();
   }
 
+  //Callback while assets are being loaded 
   private handleLoadingProgress(): void {
     this.load.on('progress', (percentage: number) => {
       console.warn('percentage', percentage);
@@ -59,6 +61,7 @@ class BootScene extends AbstractScene {
   private handleUserDataLoad(): void {
 
   }
+  //Called when all assets get loaded
   private handleAssetLoad(): void {
     this.load.on('complete', () => {
       this.assetsLoaded = true;
@@ -66,6 +69,7 @@ class BootScene extends AbstractScene {
     });
   }
 
+  //Transition to the actual game scene
   private transitionScene(): void {
     if ( this.assetsLoaded) {
       this.turnOffResizeHandler();

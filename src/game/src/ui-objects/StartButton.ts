@@ -79,6 +79,7 @@ export default class StartButton extends Phaser.GameObjects.Container {
     });
   }
 
+  
   setEnabled(value: boolean): void {
     this.isEnabled = value;
   }

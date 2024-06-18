@@ -1,3 +1,4 @@
+// This file contains all the constant values used in the code
 const blue = 0x2b3252;
 
 const lightGray = 0xeeeeee;

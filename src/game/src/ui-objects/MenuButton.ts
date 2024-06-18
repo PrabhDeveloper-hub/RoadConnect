@@ -21,6 +21,7 @@ export default class MenuButton extends Phaser.GameObjects.Container {
     .setOrigin(0.5, 0.5);
     this.button.setInteractive();
     this.button.on('pointerdown', () => {
+      this.scene.audioManager.playClick();
       this.showHideMenu(false);
       this.scene.uiManager.popup.entryAnimation();
       this.scene.uiManager.gameplay.exitAnimation();

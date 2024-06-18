@@ -7,6 +7,8 @@ import LevelIndicator from '../ui-objects/LevelIndicator';
 import GamePlay from '../ui-objects/Gameplay';
 import ResultScreen from '../ui-objects/ResultScreen';
 import MenuButton from '../ui-objects/MenuButton';
+
+//This class create instance of all the UI objects
 export default class UIManager {
   scene: AbstractScene;
   gameManager: GameManager;
@@ -15,7 +17,8 @@ export default class UIManager {
   titleScreen: TitleScreen;
   gameplay: GamePlay;
   resultScreen: ResultScreen;
-  menuButton:MenuButton
+  menuButton:MenuButton;
+
   constructor(scene: AbstractScene, gameManager: GameManager) {
     this.scene = scene;
     this.gameManager = gameManager;

@@ -17,6 +17,7 @@ class GameScene extends AbstractScene {
     this.currentLevel = data.level;
   }
 
+  //Initiating the core classes used by all scenes
   preload(): void {
     this.audioManager = new AudioManager(this);
     this.audioManager.initGameAudio();

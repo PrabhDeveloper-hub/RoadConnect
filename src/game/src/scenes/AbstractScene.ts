@@ -3,6 +3,7 @@ import GameResizer from '../utils/GameResizer';
 import UIManager from '../core/UIManager';
 import { LEVEL_DATA } from '../cfg/game-constants';
 
+//This is the base scene for all other scenes used in the game
 export abstract class AbstractScene extends Phaser.Scene {
   grs!: GameResizer;
   audioManager!: AudioManager;

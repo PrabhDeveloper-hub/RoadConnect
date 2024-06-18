@@ -17,6 +17,7 @@ export default class AudioManager {
     // If any audio needs to play in boot scene, add it here.
   }
 
+  //Before playing the audios we need to add in the scene
   initGameAudio(): void {
     for (let i = 0, len = GAME_SOUNDS.length; i < len; ++i) {
       if (GAME_SOUNDS[i].loop) {
@@ -33,10 +34,12 @@ export default class AudioManager {
     }
   }
 
+  //Audio played on button clicks
   playClick(): void {
     this.play('click');
   }
 
+  //Plays the audio by passing the audio key
   play(key: string, shouldStopPrevious = true): void {
     if (!this.isSoundOn) {
       return;
@@ -52,6 +55,7 @@ export default class AudioManager {
     }
   }
 
+  //Plays the Background Music
   playMusic(key: string, shouldStopPrevious = true): void {
     if (!this.isMusicOn) {
       return;
@@ -67,6 +71,7 @@ export default class AudioManager {
     }
   }
 
+  //Callback function when any audio is finished
   onceComplete(key: string, callback: () => void): void {
     const sound = this.sounds && this.sounds.get(key);
     if (this.sounds && sound) {
@@ -79,6 +84,7 @@ export default class AudioManager {
     }
   }
 
+  //Forcefully stop a particular sound
   stopSound(key: string): void {
     const sound = this.sounds && this.sounds.get(key);
     if (this.sounds && sound) {
@@ -88,6 +94,7 @@ export default class AudioManager {
     }
   }
 
+  //Toggle the all SFX sounds used in the game
   toggleSound(): void {
     this.isSoundOn = !this.isSoundOn;
     if (this.isSoundOn) {
@@ -97,6 +104,7 @@ export default class AudioManager {
     }
   }
 
+  //Toggle the Background Music 
   toggleMusic(): void {
     this.isMusicOn = !this.isMusicOn;
     if (this.isMusicOn) {
@@ -104,14 +112,6 @@ export default class AudioManager {
     } else {
       this.turnOffMusic();
     }
-  }
-
-  checkIfSoundOn(): boolean {
-    return this.isSoundOn;
-  }
-
-  checkIfMusicOn(): boolean {
-    return this.isMusicOn;
   }
 
   turnOffMusic(): void {
