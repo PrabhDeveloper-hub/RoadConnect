@@ -126,8 +126,9 @@ export const GAME_IMAGES = [
 export const GAME_SOUNDS = [
   { key: 'bgm', path: 'bgMusic', loop: true, ext: 'wav', volume: 0.35 },
   { key: 'click', path: 'click', loop: false, ext: 'ogg', volume: 1 },
-  { key: 'correct-item', path: 'correct-item', loop: false, ext: 'wav', volume: 1 },
-  { key: 'level-up', path: 'level-up-compressed', loop: false, ext: 'mp3', volume: 1 },
+  { key: 'rotateShape', path: 'RotateShape', loop: false, ext: 'ogg', volume: 1.5 },
+  { key: 'shapeAppear', path: 'ShapeAppear', loop: false, ext: 'ogg', volume: 1 },
+  { key: 'levelComplete', path: 'LevelComplete', loop: false, ext: 'wav', volume: 1 },
 ]
 export const CUSTOM_EVENTS = {
   BUTTON_CLICKED: 'button-clicked'

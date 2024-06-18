@@ -34,6 +34,7 @@ export default class GamePlay extends Phaser.GameObjects.Container {
       block.setDataEnabled();
       block.data.set('finalAngle', levelData[i].finalAngle)
       block.on('pointerdown', () => {
+        this.scene.audioManager.play('rotateShape');
         block.angle += 90;
         console.log(block.angle);
         this.checkCorrectAngles();
@@ -56,7 +57,7 @@ export default class GamePlay extends Phaser.GameObjects.Container {
       }
     });
     if (correctBlock === this.allBlocks.length) {
-      console.log("LEVEL COMPLETE");
+      this.scene.audioManager.play('levelComplete');
       setTimeout(() => {
         this.exitAnimation();
         this.scene.uiManager.levelIndicator.exitAnimation();
@@ -79,6 +80,7 @@ export default class GamePlay extends Phaser.GameObjects.Container {
     let durationGap = 80;
     let blockNumber = 0;
     this.allBlocks.forEach(function (block) {
+      self.scene.audioManager.play('shapeAppear');
       self.scene.tweens.add({
         targets: block,
         scale: ROAD_BLOCK.scale,
