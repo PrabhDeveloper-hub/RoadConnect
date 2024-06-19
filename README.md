@@ -1,5 +1,7 @@
-# RoadConnect
-Connect the road blocks to complete the path
+# RoadConnect 
+[PLAY GAME](https://prabhjotsingh.itch.io/road-connect)
+
+Connect the road blocks to complete the path.
 
 ## Requirements
 [Node.js](https://nodejs.org/en) is required to install dependencies and run scripts via npm.
@@ -134,37 +136,67 @@ export const LEVEL_INDICATOR_CONFIG = {
 Also it has array of dictionaries which contains asset Ids and their path which can help in creating the readable code while loading and assigning ids to the assets.
 It also has level data which contains the info related to each level like number of blocks their positions and angles
 
-`game/cfg/static-constants.ts` -
+`game/cfg/static-constants.ts` - This file contains the static constants which doesn't need to modify like Tween Easing types and Resizer type.
+```sh
+export const enum ResizerType {
+  'FIT' = 'FIT', // Leads to empty spaces around canvas. But preserves aspect ratio. May not cover the entire screen with canvas.
+  'ZOOM_FIT' = 'ZOOM_FIT', // Preserves aspect ratio and uses camera zoom to cover the entire screen with canvas.
+  'ZOOM_FIT_DPR' = 'ZOOM_FIT_DPR', // Same as zoom fit but fixes pixelation issues on mobile by taking dpr into account.
+}
+```
 
-`game/core` -
+`game/core` - Contains the core managing classes which are common throughout the game
 
-`game/core/AudioManager.ts` -
+`game/core/AudioManager.ts` - This class contains common reusable functions which can manage all the audio in the game like 
+Adding audio to scene , function to play audio using audioId, Toggling the Music and SFX.
+```sh
+initGameAudio(): void {
+    for (let i = 0, len = GAME_SOUNDS.length; i < len; ++i) {
+      if (GAME_SOUNDS[i].loop) {
+        this.bgSounds.set(
+          GAME_SOUNDS[i].key,
+          this.scene.sound.add(GAME_SOUNDS[i].key, { volume: GAME_SOUNDS[i].volume, loop: GAME_SOUNDS[i].loop })
+        );
+      } else {
+        this.sounds.set(
+          GAME_SOUNDS[i].key,
+          this.scene.sound.add(GAME_SOUNDS[i].key, { volume: GAME_SOUNDS[i].volume, loop: GAME_SOUNDS[i].loop })
+        );
+      }
+    }
+  }
+```
 
-`game/core/GameManager.ts` -
+`game/core/GameManager.ts` - It contains the common methods like incrementing the level, setting the max level so that in Level select popup we can enable or disable the level buttons accordingly.
 
-`game/core/UIManager.ts` -
+`game/core/UIManager.ts` - This class manages all the UI element classes. All the UI objects are instantiated in this class. It serves as a link between this ui objects like we need to call the Popup entry animation on PLAY button click and so on.
 
-`game/game-objects` -
+`game/game-objects/Background.ts` - Creates a Background behind the game screen.
 
-`game/game-objects/Background.ts` -
+`game/game-objects/GameComponent.ts` - This class is getting the renderer type and creating an area on which our game can render .Phaser renderer are off three types `Phaser.CANVAS`, `Phaser.WEBGL`, or `Phaser.AUTO`. This is the rendering context that you want to use for your game. The recommended value is Phaser.AUTO which automatically tries to use WebGL, but if the browser or device doesn't support it it'll fall back to Canvas. The canvas element that Phaser creates will be simply be appended to the document at the point the script was called.
+```sh
+if (this.scene.sys.renderer.type === Phaser.WEBGL) {
+      this.grd = this.scene.textures.createCanvas('grd').getContext();
+    } else {
+      this.grd = this.scene.sys.canvas.getContext('2d');
+    }
+```
 
-`game/game-objects/GameComponent.ts` -
+`game/scenes` - This directory contains all the game scenes.
 
-`game/scenes` -
+`game/scenes/AbstractScene.ts` - This is the base scene of all the scenes which is extending the Phaser.Scene and attaching core functinality like resize handler, Audio manager
 
-`game/scenes/AbstractScene.ts` -
+`game/scenes/BootScene.ts` - Bootscene is responsible for loading all the assets used in the game like Images, Sounds and Fonts. It is the first scene of the game . Load method of this scene is resoponsible of loading the assets , It has some callback events like `progress` which returns the percentage of assets loaded . `complete` which tells the assets are loaded successfully and we can use them accordingly in the game. We can also show Loading text and Loading Progress bar in this scene.
 
-`game/scenes/BootScene.ts` -
+`game/scenes/GameScene.ts` - GameScene is the actual scene where a player interacts with the game elements . This scene instantiates audio manager , game manager and UI manager.
 
-`game/scenes/GameScene.ts` -
+`game/ui-objects` - Contains all the UI elements of the game.
 
-`game/ui-objects` -
+`game/ui-objects/Gameplay.ts` - This class is responsible for adding the blocks according to the level number, attaching the events to blocks, Rotating blocks functionality, Loading next level, Entry animation of blocks when level starts and exit animation of blocks when game ends.
 
-`game/ui-objects/Gameplay.ts` -
+`game/ui-objects/LevelIndicator.ts` - LevelIndicator is a Phaser Container (a container in phaser is an object which can have many child game objects) which is used to show the level number on the top of the game screen `LEVEL 1`. This container has entry and exit animations which are created using [Phaser tweens](https://rexrainbow.github.io/phaser3-rex-notes/docs/site/tween/)
 
-`game/ui-objects/LevelIndicator.ts` -
-
-`game/ui-objects/MenuButton.ts` -
+`game/ui-objects/MenuButton.ts` - 
 
 `game/ui-objects/Popup.ts` -
 
