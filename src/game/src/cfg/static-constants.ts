@@ -34,3 +34,6 @@ export const enum ResizerType {
   'ZOOM_FIT' = 'ZOOM_FIT', // Preserves aspect ratio and uses camera zoom to cover the entire screen with canvas.
   'ZOOM_FIT_DPR' = 'ZOOM_FIT_DPR', // Same as zoom fit but fixes pixelation issues on mobile by taking dpr into account.
 }
+
+// id - Indonesian | en - English | es - Spanish
+export const LangCode: 'en' | 'id' | 'es' = 'es';

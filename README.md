@@ -19,6 +19,7 @@ The local development server runs on `http://localhost:9000` by default. Please 
 Once the server is running you can edit any of the files in the `src` folder. Webpack will automatically recompile your code and then reload the browser.
 
 ## Template Structure
+
 `webpack` - If you want to customize your build, such as adding a new webpack loader or plugin (i.e. for loading CSS or fonts), you can modify the `webpack/config.js` file for cross-project changes, or you can modify and/or create new configuration files and target them in specific npm tasks inside of `package.json`. Please see the [Webpack documentation](https://webpack.js.org/) for more information.
 
 `src` - Contains all the source code of the game.
@@ -100,6 +101,9 @@ and doing other stuff like event when orientation changes , Instantiating the ga
 
 `game/assets/img` - contains all the images and Sprites used in the game.
 
+`game/assets/localization` - contains all the language json files.
+
+
 `game/cfg` - This folder consists of configurable constants which are used by the objects in game
 
 `game/cfg/game-config.ts` - It contains the value of Design Resolution like a Safe area for the UI objects and Center position of the game view.
@@ -169,6 +173,8 @@ initGameAudio(): void {
 
 `game/core/GameManager.ts` - It contains the common methods like incrementing the level, setting the max level so that in Level select popup we can enable or disable the level buttons accordingly.
 
+`game/LocalizationManager.ts` - This class contains the method which get all the translation keys from the json file . It also contains a method which returns the text in particular language according to the key passed in it.
+
 `game/core/UIManager.ts` - This class manages all the UI element classes. All the UI objects are instantiated in this class. It serves as a link between this ui objects like we need to call the Popup entry animation on PLAY button click and so on.
 
 `game/game-objects/Background.ts` - Creates a Background behind the game screen.
@@ -223,3 +229,59 @@ if (this.scene.sys.renderer.type === Phaser.WEBGL) {
 5. User can play by clicking on blocks and rotating them. Once all block angles are correctly set all blocks will disappear and next level begins.
 6. After completing all the levels there will be result screen which shows `ALL LEVELS CLEARED! =)`.
 7. User can also select level of its choice by clicking on the Menu button at the bottom of the screen and selecting the level button.
+
+## Localization
+
+Localization in game means adding functionality so that it can support more than one language. In this game I have added 3 different languages English, Spanish and Indonesian. 
+
+#### Steps for localization
+
+* Created 3 different json files for each language `en.json`, `es.json` and `id,json`
+* Created a constant in `game/cfg/static-constants.ts` to set in which language user needs to play.
+```sh
+// id - Indonesian | en - English | es - Spanish
+export const LangCode: 'en' | 'id' | 'es' = 'es';
+```
+
+* Loading the json file according to `LangCode`
+```sh
+this.scene.load.path = 'game/src/assets/localization/';
+this.scene.load.json('language', `${LangCode}.json`);
+```
+
+* Created a `LocalizationManager` class which contains a dictionary in which we are adding all the keys and its translated texts
+```sh
+ private setTranslations(translationsObject: { [key: string]: string }): void {
+    Object.keys(translationsObject).forEach((languageKey: string) => {
+      if (this.currentTranslation[languageKey]) {
+        console.error(`DUPLICATED TRANSLATION KEY DETECTED: ${languageKey}`);
+      }
+      this.currentTranslation[languageKey] = translationsObject[languageKey];
+    });
+  }
+```
+It also contains a method which returns the translated text so that it can be used 
+```sh
+ translate(key: string, toUpperCase = true): string {
+    let keyMod = key;
+    let translation: string = this.currentTranslation[keyMod];
+    if (!translation) {
+      console.error(`NO TRANSLATION WITH KEY: ${keyMod}`);
+      return '';
+    }
+    if (toUpperCase) {
+      translation = translation.toUpperCase();
+    }
+    return translation;
+  }
+```
+
+* Creating the class variable in `AbstractScene.ts` and instantiating it in `GameScene.ts`.
+
+* Now we can use the translate method and show different language texts on screen.
+```sh
+this.levelTitleText = this.scene.add.text(CAM_CENTER.x, 0, ` ${this.scene.localizationManager.translate('level')} ${this.scene.currentLevel} `, LEVEL_INDICATOR_CONFIG.textStyle)
+      .setAlign('center')
+      .setOrigin(LEVEL_INDICATOR_CONFIG.origin.x, LEVEL_INDICATOR_CONFIG.origin.y)
+      .setShadow(LEVEL_INDICATOR_CONFIG.shadowStyle.x, LEVEL_INDICATOR_CONFIG.shadowStyle.y, LEVEL_INDICATOR_CONFIG.shadowStyle.color, LEVEL_INDICATOR_CONFIG.shadowStyle.blur, LEVEL_INDICATOR_CONFIG.shadowStyle.stroke, LEVEL_INDICATOR_CONFIG.shadowStyle.fill);
+```

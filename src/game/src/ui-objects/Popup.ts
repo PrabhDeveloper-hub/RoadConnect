@@ -1,6 +1,6 @@
 import { CAM_CENTER } from '../cfg/game-config';
-import { LEVEL_BUTTON_CONFIG } from '../cfg/game-constants';
-import { TWEEN_EASING } from '../cfg/static-constants';
+import {LEVEL_BUTTON_CONFIG, LEVEL_INDICATOR_CONFIG } from '../cfg/game-constants';
+import { LangCode, TWEEN_EASING } from '../cfg/static-constants';
 import AbstractScene from '../scenes/AbstractScene';
 export default class Popup extends Phaser.GameObjects.Container {
   scene: AbstractScene;
@@ -20,10 +20,14 @@ export default class Popup extends Phaser.GameObjects.Container {
 
   //Adding LEVEL SELECT text on top of popup
   addLevelText() {
-    this.levelSelect = this.scene.add.text(0, -this.base.height/1.5, ' LEVEL SELECT ', LEVEL_BUTTON_CONFIG.textStyle)
+    
+    this.levelSelect = this.scene.add.text(0, -this.base.height/1.5, ` ${this.scene.localizationManager.translate('levelSelect')} `, LEVEL_BUTTON_CONFIG.textStyle)
     .setAlign('center')
     .setOrigin(LEVEL_BUTTON_CONFIG.origin.x, LEVEL_BUTTON_CONFIG.origin.y)
     .setShadow(LEVEL_BUTTON_CONFIG.shadowStyle.x, LEVEL_BUTTON_CONFIG.shadowStyle.y, LEVEL_BUTTON_CONFIG.shadowStyle.color, LEVEL_BUTTON_CONFIG.shadowStyle.blur, LEVEL_BUTTON_CONFIG.shadowStyle.stroke, LEVEL_BUTTON_CONFIG.shadowStyle.fill);
+    if(LangCode == 'es'){
+      this.levelSelect.setFontSize(40);
+    }
     this.add(this.levelSelect);
   }
 

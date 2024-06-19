@@ -2,6 +2,8 @@ import AudioManager from '../core/AudioManager';
 import GameManager from '../core/GameManager';
 import UIManager from '../core/UIManager';
 import AbstractScene from './AbstractScene';
+import LocalizationManager from '../core/LocalizationManager';
+
 
 class GameScene extends AbstractScene {
   private gameManager!: GameManager;
@@ -19,6 +21,7 @@ class GameScene extends AbstractScene {
 
   //Initiating the core classes used by all scenes
   preload(): void {
+    this.localizationManager = new LocalizationManager(this);
     this.audioManager = new AudioManager(this);
     this.audioManager.initGameAudio();
     this.gameManager = new GameManager(this);

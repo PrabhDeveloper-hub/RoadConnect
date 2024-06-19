@@ -1,4 +1,5 @@
 import { GAME_SOUNDS,GAME_IMAGES } from '../cfg/game-constants';
+import { LangCode } from '../cfg/static-constants';
 import AbstractScene from '../scenes/AbstractScene';
 
 const IMG_PREFIX_URL = 'game/src/assets/img/';
@@ -31,6 +32,10 @@ export class AssetsPreloader {
         `${GAME_SOUNDS[i].path}.${GAME_SOUNDS[i].ext}`,
       ]);
     }
+
+    this.scene.load.path = 'game/src/assets/localization/';
+    this.scene.load.json('language', `${LangCode}.json`);
+
     this.scene.load.start();
   }
 }

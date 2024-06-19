@@ -24,7 +24,7 @@ export default class StartButton extends Phaser.GameObjects.Container {
   //Adding PLAY text which appears on title Screen
   private addStartText() {
     this.startText = this.scene.add
-      .text(0, 0, ' PLAY ', START_BUTTON_CONFIG.textStyle)
+      .text(0, 0, ` ${this.scene.localizationManager.translate('play')} `, START_BUTTON_CONFIG.textStyle)
       .setAlign('center')
       .setOrigin(START_BUTTON_CONFIG.origin.x, START_BUTTON_CONFIG.origin.y)
       .setScale(0)

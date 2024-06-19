@@ -17,7 +17,7 @@ export default class ResultScreen extends Phaser.GameObjects.Container {
 
   //Creating the Result text
   addResultText() {
-    this.resultText = this.scene.add.text(0, 0, ' ALL  LEVELS  CLEARED!  =) ', RESULT_SCREEN_CONFIG.textStyle)
+    this.resultText = this.scene.add.text(0, 0, ` ${this.scene.localizationManager.translate('allLevelsCleared')} `, RESULT_SCREEN_CONFIG.textStyle)
       .setAlign('center')
       .setOrigin(RESULT_SCREEN_CONFIG.origin.x, RESULT_SCREEN_CONFIG.origin.y)
       .setScale(0)

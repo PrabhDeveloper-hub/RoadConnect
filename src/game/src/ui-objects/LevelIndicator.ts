@@ -18,8 +18,8 @@ export default class LevelIndicator extends Phaser.GameObjects.Container {
 
   //Adding GameScreen Level Text
   private addLevelTitleText() {
-    this.levelTitleText = this.scene.add
-      .text(CAM_CENTER.x, 0, ` LEVEL ${this.scene.currentLevel} `, LEVEL_INDICATOR_CONFIG.textStyle)
+    let text = this.scene.localizationManager.translate('level');
+    this.levelTitleText = this.scene.add.text(CAM_CENTER.x, 0, ` ${this.scene.localizationManager.translate('level')} ${this.scene.currentLevel} `, LEVEL_INDICATOR_CONFIG.textStyle)
       .setAlign('center')
       .setOrigin(LEVEL_INDICATOR_CONFIG.origin.x, LEVEL_INDICATOR_CONFIG.origin.y)
       .setShadow(LEVEL_INDICATOR_CONFIG.shadowStyle.x, LEVEL_INDICATOR_CONFIG.shadowStyle.y, LEVEL_INDICATOR_CONFIG.shadowStyle.color, LEVEL_INDICATOR_CONFIG.shadowStyle.blur, LEVEL_INDICATOR_CONFIG.shadowStyle.stroke, LEVEL_INDICATOR_CONFIG.shadowStyle.fill);;
@@ -28,7 +28,7 @@ export default class LevelIndicator extends Phaser.GameObjects.Container {
 
   //Setting dynamic level text according to current level
   setLevel(): void {
-    this.levelTitleText.text = ` LEVEL ${this.scene.currentLevel} `;
+    this.levelTitleText.text = ` ${this.scene.localizationManager.translate('level')} ${this.scene.currentLevel} `;
   }
 
   //Level text animation when level starts
