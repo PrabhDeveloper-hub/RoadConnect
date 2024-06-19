@@ -48,7 +48,7 @@ To deliver an HBS file to the browser, you must include it in the script tag, as
 
 `game/game.component.ts` - Component where we are doing the following tasks
 
-### Creating Game Config
+#### Creating Game Config
 
 ```sh
 const renderer = Phaser.CANVAS;
@@ -78,13 +78,13 @@ const config: GameConfig = {
     };
 ```
 
-### Adding scenes
+#### Adding scenes
 ```sh
 game.scene.add('boot', BootScene);
 game.scene.add('game', GameScene);
 ```
 
-### Starting the boot scene
+#### Starting the boot scene
 ```sh
 game.scene.start('boot');
 ```
@@ -196,21 +196,21 @@ if (this.scene.sys.renderer.type === Phaser.WEBGL) {
 
 `game/ui-objects/LevelIndicator.ts` - LevelIndicator is a Phaser Container (a container in phaser is an object which can have many child game objects) which is used to show the level number on the top of the game screen `LEVEL 1`. This container has entry and exit animations which are created using [Phaser tweens](https://rexrainbow.github.io/phaser3-rex-notes/docs/site/tween/)
 
-`game/ui-objects/MenuButton.ts` - 
+`game/ui-objects/MenuButton.ts` - Contains the logic for adding the menu button on the screen and events attached to call the Menu Popup.It also contains the method `showHideMenu` which takes a boolean value. This method is responsible to show the menu button on game screen and hiding on title screen and when popup is visible.
 
-`game/ui-objects/Popup.ts` -
+`game/ui-objects/Popup.ts` - Popup class is extending the Phaser.GameObjects.Container . In this class we are creating the Popup base, Level buttons, enabling/disabling logic of level buttons according to the `maxLevel` , `Level Select` text and animations for closing and opening the popup.
 
-`game/ui-objects/ResultScreen.ts` -
+`game/ui-objects/ResultScreen.ts` - This class contains a result text which says `ALL  LEVELS  CLEARED!  =)` and animation methods to show the result after all levels are cleared. We can also add Replay button or Reset progress button which can clear the data and start game from beginning.
 
-`game/ui-objects/StartButton.ts` -
+`game/ui-objects/StartButton.ts` - This class is responsible for creating the `PLAY` button on the title screen and calling the methods attached with button to call the popup when user clicks on the button. It also has its own entry and exit animation.
 
-`game/ui-objects/TitleScreen.ts` -
+`game/ui-objects/TitleScreen.ts` - This class creates Game logo on starting screen , animation which runs when title screen appears like the Road is coming from left and Connect is coming from right , animation of title when user clicks on play button. We are instantiating the start button in this class.
 
-`game/utils` -
+`game/utils` - Contains utility classes which are helping in resizing and loading game assets
 
-`game/utils/AssetPreloader.ts` - 
+`game/utils/AssetPreloader.ts` - Contains method which loads the assets used by fetching the dictionary of images and sounds which constits of key(name using which an image or sound can be used in the game) and path of assets .
 
-`game/utils/CameraResizer.ts` -
+`game/utils/CameraResizer.ts` - This class is responsible for preserving the main content specified within the bounds of `DESIGN_RES` using `DPR`. Uses camera zoom to add black borders in the canvas.In simple words Canvas dom attributes acts as an image resolution opened in a device screen.Canvas style attributes specify the device screen resolution. A 540x960 image opened in a 1080x1920 device screen will be scaled up hence clarity loss. A 2160x3840 image opened in a 1080x1920 device screen will be scaled down, since aspect ratio is the same, no loss of clarity, but memory consumption will be more.
 
-`game/utils/GameResizer.ts` -
+`game/utils/GameResizer.ts` - This class is responsible for the resizing of the game screen and contains the methods for setting the camera zoom. It has method which resizes the game and preserve the aspect ratio at the same time for both the orientations. 
 
