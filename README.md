@@ -214,3 +214,12 @@ if (this.scene.sys.renderer.type === Phaser.WEBGL) {
 
 `game/utils/GameResizer.ts` - This class is responsible for the resizing of the game screen and contains the methods for setting the camera zoom. It has method which resizes the game and preserve the aspect ratio at the same time for both the orientations. 
 
+## Gameplay Flow
+
+1. When game starts Boot scene is loading all the assets after that control goes to Title screen.
+2. On Title Screen user clicks on Play button.
+3. Popup displays on the screen which has 3 levels but user can click on level 1 button.
+4. When user clicks on Level 1 button `setup()` method of `Gameplay` is called which calls `addblocks()` and blocks appears on screen.
+5. User can play by clicking on blocks and rotating them. Once all block angles are correctly set all blocks will disappear and next level begins.
+6. After completing all the levels there will be result screen which shows `ALL LEVELS CLEARED! =)`.
+7. User can also select level of its choice by clicking on the Menu button at the bottom of the screen and selecting the level button.
