@@ -57,7 +57,6 @@ class Game {
         clearInterval(startInterval);
         (game.scene.scenes as AbstractScene[]).forEach((scene: AbstractScene) => {
           scene.grs = gameResizer;
-          // scene.playerDocRef = doc(db, 'spot-the-change', `${GPID}`)
           scene.attachHandlers();
         });
         game.scene.start('boot');

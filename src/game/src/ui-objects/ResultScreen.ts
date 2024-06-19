@@ -27,6 +27,7 @@ export default class ResultScreen extends Phaser.GameObjects.Container {
 
   //Scaling animation when menu is clicked after game ends
   exitAnimation() {
+    this.scene.uiManager.levelIndicator.setAlpha(0);
     const timeline = this.scene.tweens.createTimeline();
     timeline.add({
       targets: this.resultText,
@@ -39,6 +40,7 @@ export default class ResultScreen extends Phaser.GameObjects.Container {
 
   //Scaling animation when all levels are cleared
   entryAnimation() {
+    this.scene.uiManager.levelIndicator.setAlpha(1);
     this.scene.tweens.add({
       targets: this.resultText,
       scale: 1,

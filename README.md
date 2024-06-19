@@ -42,25 +42,97 @@ To deliver an HBS file to the browser, you must include it in the script tag, as
 
 `src/shared/styles/reset.scss` - Some browser automatically takes extra padding and margin around the content , in this file we are removing all the extra padding, margins and resizing the canvas to fit in full browser screen
 
-`game` -
+`game` - Contains all the game logic
 
-`game/game.component.ts` -
+`game/game.component.ts` - Component where we are doing the following tasks
 
-`game/game.styles.scss` -
+### Creating Game Config
 
-`game/assets` -
+```sh
+const renderer = Phaser.CANVAS;
+const config: GameConfig = {
+      type: renderer,
+      title: 'Road Connect',
+      backgroundColor: '#FFF',
+      banner: process.env.NODE_ENV === 'development', 
+      scale: {
+        fullscreenTarget: 'app-root',
+        parent: 'phaser-canvas',
+        mode: Phaser.Scale.NONE,
+        width: 540,
+        height: 960,
+        autoRound: true,
+      },
+      plugins: {
+        global: [
+          {
+            key: 'rexRoundRectanglePlugin',
+            plugin: RoundRectanglePlugin,
+            start: true,
+          },
+          // ...
+        ],
+      },
+    };
+```
 
-`game/assets/audio` -
+### Adding scenes
+```sh
+game.scene.add('boot', BootScene);
+game.scene.add('game', GameScene);
+```
 
-`game/assets/fonts` -
+### Starting the boot scene
+```sh
+game.scene.start('boot');
+```
+and doing other stuff like event when orientation changes , Instantiating the game resizer.
 
-`game/assets/img` -
+`game/game.styles.scss` - contains css related to canvas created to embed the game.
 
-`game/cfg` -
+`game/assets` - It contains all the assets related to the game.
 
-`game/cfg/game-config.ts` -
+`game/assets/audio` - contains all the audio used inside the game like Background Music and SFX.
 
-`game/cfg/game-constants.ts` -
+`game/assets/fonts` - contains custom fonts used in game.
+
+`game/assets/img` - contains all the images and Sprites used in the game.
+
+`game/cfg` - This folder consists of configurable constants which are used by the objects in game
+
+`game/cfg/game-config.ts` - It contains the value of Design Resolution like a Safe area for the UI objects and Center position of the game view.
+```sh
+export const CAM_CENTER = {
+  x: 1920,
+  y: 1920,
+};
+```
+
+`game/cfg/game-constants.ts` - Contains constants for the UI objects like Position, Scaling, Text Style
+```sh
+export const LEVEL_INDICATOR_CONFIG = {
+  textStyle: {
+    fontFamily: GAME_FONT,
+    fontSize: '60px',
+    resolution: 3,
+    color: '#ffffff',
+  },
+  origin: {
+    x: 0.5,
+    y: 0.5
+  },
+  shadowStyle: {
+    x: -10,
+    y: 5,
+    color: '#36454F',
+    blur: 10,
+    stroke: false,
+    fill: true
+  }
+};
+```
+Also it has array of dictionaries which contains asset Ids and their path which can help in creating the readable code while loading and assigning ids to the assets.
+It also has level data which contains the info related to each level like number of blocks their positions and angles
 
 `game/cfg/static-constants.ts` -
 

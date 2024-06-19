@@ -33,6 +33,7 @@ export default class LevelIndicator extends Phaser.GameObjects.Container {
 
   //Level text animation when level starts
   entryAnimation() {
+    this.setAlpha(1);
     this.setLevel();
     this.scene.tweens.add({
       targets: this.levelTitleText,
