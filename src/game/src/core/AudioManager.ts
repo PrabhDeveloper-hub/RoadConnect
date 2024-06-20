@@ -145,4 +145,15 @@ export default class AudioManager {
       }
     }
   }
+
+  //Get sound duration
+  getDuration(key: string) {
+    const sound = this.sounds && this.sounds.get(key);
+    if (this.sounds && sound) {
+      return sound.duration;
+    } else {
+      console.warn(`Cannot find sound with key: ${key}`);
+    }
+    return 2;
+  }
 }

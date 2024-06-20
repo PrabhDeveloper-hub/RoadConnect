@@ -30,7 +30,7 @@ export default class GamePlay extends Phaser.GameObjects.Container {
         .setOrigin(ROAD_BLOCK.origin.x, ROAD_BLOCK.origin.y);
       block.setInteractive();
       block.setDataEnabled();
-      block.data.set('finalAngle', levelData[i].finalAngle)
+      block.data.set('finalAngle', levelData[i].finalAngle);
       block.on('pointerdown', () => {
         this.scene.audioManager.play('rotateShape');
         block.angle += 90;
@@ -68,7 +68,7 @@ export default class GamePlay extends Phaser.GameObjects.Container {
           this.scene.uiManager.resultScreen.entryAnimation();
 
         }
-      }, 150);
+      }, 250);
     }
   }
 
@@ -83,7 +83,7 @@ export default class GamePlay extends Phaser.GameObjects.Container {
         targets: block,
         scale: ROAD_BLOCK.scale,
         ease: TWEEN_EASING.LINEAR,
-        duration: 150 + blockNumber * durationGap
+        duration: 50 + blockNumber * durationGap
       });
       blockNumber++;
     })
