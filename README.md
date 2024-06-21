@@ -7,9 +7,11 @@ Connect the road blocks to complete the path.
 [Node.js](https://nodejs.org/en) is required to install dependencies and run scripts via npm.
 
 ## Available Commands
-**npm install** - To install project dependencies
-**npm start** - Launch a development web server
-**npm run build** - Create a production build in the dist folder
+`npm install` - To install project dependencies
+
+`npm start` - Launch a development web server
+
+`npm run build` - Create a production build in the dist folder
 
 ## Running Code
 After cloning the repo, run `npm install` from your project directory. Then, you can start the local development server by running `npm start`.
